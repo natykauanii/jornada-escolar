@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Jornada Escolar de Nátally</title>
+    <style>
+        /* Estilos Gerais */
+        :root {
+            --cor-primaria: #7c3aed;
+            --cor-secundaria: #5b21b6;
+            --cor-destaque: #ede9fe;
+            --cor-fundo: #faf5ff;
+            --cor-texto: #1e293b;
+            --cor-card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+            color: white;
+            text-align: center;
+            padding: 4.5rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(91, 33, 182, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Seção Sobre Mim */
+        .sobre {
+            background: var(--cor-card);
+            padding: 2.2rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3.5rem;
+            text-align: center;
+            border-top: 5px solid var(--cor-primaria);
+        }
+
+        .sobre h2 {
+            color: var(--cor-primaria);
+            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+        }
+
+        /* Linha do Tempo */
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--cor-primaria);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 35px;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 35px;
+            padding-right: 0;
+            margin-left: 50%;
+        }
+
+        /* Bolinha na linha do tempo */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            right: -11px;
+            top: 22px;
+            width: 22px;
+            height: 22px;
+            background-color: white;
+            border: 4px solid var(--cor-primaria);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -11px;
+            right: auto;
+        }
+
+        /* Cartão de cada etapa */
+        .card {
+            background: var(--cor-card);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);
+        }
+
+        .etapa-badge {
+            display: inline-block;
+            background-color: var(--cor-destaque);
+            color: var(--cor-secundaria);
+            font-weight: bold;
+            padding: 0.3rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.4rem;
+            color: #0f172a;
+            font-size: 1.35rem;
+        }
+
+        .local {
+            color: var(--cor-primaria);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #ede9fe;
+            color: #4c1d95;
+            margin-top: 4rem;
+            font-weight: 500;
+        }
+
+        /* Responsividade para Celular */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item, .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                margin-left: 0;
+                justify-content: flex-start;
+            }
+            .timeline-item::after, .timeline-item:nth-child(even)::after {
+                left: 9px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Minha Jornada Escolar</h1>
+        <p>De Assungui ao Terceirão: a história dos meus passos na educação.</p>
+    </header>
+
+    <main class="container">
+        <section class="sobre">
+            <h2>Olá, eu sou a Nátally! ✨</h2>
+            <p>Este site conta um pouco da minha trajetória nos estudos. Desde os meus 5 anos de idade até o momento especial que vivo hoje, cada escola, professor e aprendizado ajudou a construir quem eu sou.</p>
+        </section>
+
+        <section class="timeline">
+            <!-- Etapa 1 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="etapa-badge">Aos 5 anos • O Início</span>
+                    <h3>Primeiros Passos na Escola</h3>
+                    <span class="local">📍 Escola Municipal de Assungui</span>
+                    <p>Foi aqui que a minha história como estudante começou! Aos 5 anos, dei meus primeiros passos na sala de aula, aprendendo as primeiras letras, números, fazendo amigos e descobrindo o mundo da leitura e das brincadeiras.</p>
+                </div>
+            </div>
+
+            <!-- Etapa 2 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="etapa-badge">Aos 11 anos • Nova Fase</span>
+                    <h3>Crescimento e Novas Descobertas</h3>
+                    <span class="local">📍 Colégio das Campinas</span>
+                    <p>Aos 11 anos, encarei uma grande mudança ao entrar no Colégio das Campinas. Uma fase de amadurecimento, novas matérias, desafios diferentes e muitas amizades que marcaram a minha transição para a adolescência.</p>
+                </div>
+            </div>
+
+            <!-- Etapa 3 -->
+            <div class="timeline-item">
+                <div class="card">
+                    <span class="etapa-badge">Hoje • Reta Final 🎓</span>
+                    <h3>3ª Série do Ensino Médio</h3>
+                    <span class="local">📍 O Último Ano!</span>
+                    <p>Cheguei ao tão esperado Terceirão! Este é o meu último ano na escola, um momento cheio de emoção, dedicação e preparação para os próximos passos da vida. Olho para trás com muito orgulho de tudo o que conquistei desde Assungui até aqui.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Criado por Nátally • Formanda 2026 🎓</p>
+    </footer>
+
+</body>
+</html>
